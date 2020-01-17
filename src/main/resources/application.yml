@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: poc-avro
+
+  cloud:
+    stream:
+      bindings:
+        clientes:
+          destination: poc-avro-cliente
+          group: poc-avro-cliente
+          contentType: application/*+avro
+        schema:
+          avro:
+            schema-locations: classpath:avro/cliente.avsc
+        schema-registry-client:
+          endpoint: http://kafka-schema-registry:8081

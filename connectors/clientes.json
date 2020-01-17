@@ -1,0 +1,23 @@
+{
+  "name": "clientes",
+  "config": {
+    "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+    "dialect.name": "MySqlDatabaseDialect",
+    "connection.url": "jdbc:mysql://10.0.75.1:3306/poc_avro?verifyServerCertificate=false&useSSL=true&requireSSL=true",
+    "connection.user": "root",
+    "connection.password": "avro",
+    "key.converter": "io.confluent.connect.avro.AvroConverter",
+    "key.converter.schema.registry.url": "http://kafka-schema-registry:8081",
+    "value.converter": "io.confluent.connect.avro.AvroConverter",
+    "value.converter.schema.registry.url": "http://kafka-schema-registry:8081",
+    "transforms": "Cast,SetSchemaName",
+    "transforms.Cast.type": "org.apache.kafka.connect.transforms.Cast$Value",
+    "transforms.Cast.spec": "id:int64,nome:string,cpf:string",
+    "transforms.SetSchemaName.type": "org.apache.kafka.connect.transforms.SetSchemaMetadata$Value",
+    "transforms.SetSchemaName.schema.name": "io.confluent.connect.avro.ClienteAvroDto",
+    "mode": "incrementing",
+    "table.whitelist": "cliente",
+    "topic.prefix": "poc-avro-",
+    "table.types": "TABLE, BASE, SYSTEM, VIEW, GLOBAL TEMPORARY"
+  }
+}
