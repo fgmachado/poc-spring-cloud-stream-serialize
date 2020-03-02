@@ -9,4 +9,5 @@ public interface ClienteProcessor {
 
     @Input(CLIENTES)
     SubscribableChannel clientes();
+
 }

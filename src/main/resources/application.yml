@@ -13,4 +13,4 @@ spring:
           avro:
             schema-locations: classpath:avro/cliente.avsc
         schema-registry-client:
-          endpoint: http://kafka-schema-registry:8081
+          endpoint: http://kafka-schema-registry_1:8081

@@ -1,5 +1,16 @@
 version: '2.2'
 services:
+  mysql:
+    image: "mysql:latest"
+    hostname: "mysql"
+    container_name: "mysql"
+    ports:
+    - "3306:3306"
+    environment:
+      MYSQL_DATABASE: 'poc_avro'
+      MYSQL_USER: 'avro'
+      MYSQL_PASSWORD: 'avro'
+      MYSQL_ROOT_PASSWORD: 'avro'
   zoo1:
     image: zookeeper:3.4.9
     restart: unless-stopped
